@@ -1,8 +1,20 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using FrontEndRazor.Data;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+
+//builder.Services.AddHttpClient(client =>
+//         client.BaseAddress = new Uri(builder.Configuration.GetSection("VentasApi").Value));
+/*
+builder.Services.AddDbContext<FrontEndRazorContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FrontEndRazorContext") ?? throw new InvalidOperationException("Connection string 'FrontEndRazorContext' not found.")));
+*/
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
